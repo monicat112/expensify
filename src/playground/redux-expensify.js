@@ -80,14 +80,12 @@ const expensesReducer = (state = expensesReducerDefaultState, action) => {
                     return expense
                 }
             })
-        // case 'SET_TEXT_FILTER':
-        //     return state.filter((expense) => {
-        //         return expense.description.toLowerCase().includes(action.text.toLowerCase())
-        //     })
         default:
             return state
     }
 }
+
+// Filter Reducer
 
 const filterReducerDefaultState = {
     text: '',
