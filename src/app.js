@@ -20,9 +20,6 @@ const visibleExpenses = getVisibleExpenses(state.expenses, state.filters)
 console.log(visibleExpenses)
 
 const jsx = (
-    // Provider needs a prop for the store that you're sharing with the rest of the application
-    // provider needs to be set up to use Connect
-
     <Provider store={store}>
         <AppRouter />
     </Provider>
