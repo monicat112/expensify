@@ -7,7 +7,7 @@ const AddExpensePage = (props) => (
     <div>
         <h1>Add Expense (Create)</h1>
         <ExpenseForm 
-            onSubmitExternal={(expense) => {
+            onSubmit={(expense) => {
                 props.dispatch(addExpense(expense))
                 props.history.push('/')
             }}
