@@ -1,18 +1,61 @@
 import React from 'react'
+import moment from 'moment'
+import { SingleDatePicker } from 'react-dates'
+import 'react-dates/lib/css/_datepicker.css'
 
 export default class ExpenseForm extends React.Component {
     state = {
-        description: ''
+        description: '',
+        note: '',
+        amount: '',
+        createdAt: moment(),
+        calendarFocused: false,
+        error: ''
     }
     onDescriptionChange = (e) => {
         const description = e.target.value
         this.setState(() => ({ description }))
     }
+    onNoteChange = (e) => {
+        // another way to set the state to the event target's value:
+        e.persist()
+        this.setState(() => ({ note: e.target.value })) // without persist (above) e doesn't work inside of this callback function
+    }
+    onAmountChange = (e) => {
+        const amount = e.target.value
+        if (!amount || amount.match(/^\d{1,}(\.\d{0,2})?$/)) { // if there is no amount OR if the amount matches our regex
+            this.setState(() => ({ amount }))
+        }
+    }
+    onDateChange = (createdAt) => { // onDateChange gets called with the date https://github.com/airbnb/react-dates#singledatepicker
+        if ( createdAt ) { // this keeps users from clearing the date value
+            this.setState(() => ({ createdAt }))
+        }
+    }
+    onFocusChange = ({ focused }) => { //destructuring the SingleDatePicker's props
+        this.setState(() => ({ calendarFocused: focused }))
+    }
+    onSubmit = (e) => {
+        e.preventDefault()
+
+        if (!this.state.description || !this.state.amount) {
+            this.setState(() => ({ error: 'Please provide a description and amount' }))
+        } else {
+            this.setState(() => ({ error: '' }))
+            console.log('submitted')
+            this.props.onSubmitExternal({ 
+                description: this.state.description,
+                amount: parseFloat(this.state.amount, 10) * 100,
+                createdAt: this.state.createdAt.valueOf(), // this is a moment.js method
+                note: this.state.note
+            })
+        }
+    }
     render() {
         return (
             <div>
-                ExpenseForm
-                <form>
+                {this.state.error && <p>this.state.error</p>}
+                <form onSubmit={this.onSubmit}>
                     <input 
                         type="text"
                         placeholder="Description"
@@ -21,11 +64,23 @@ export default class ExpenseForm extends React.Component {
                         onChange={this.onDescriptionChange}
                     />
                     <input 
-                        type="number"
+                        type="text"
                         placeholder="Amount"
+                        value={this.state.amount}
+                        onChange={this.onAmountChange}
+                    />
+                    <SingleDatePicker 
+                        date={this.state.createdAt}
+                        onDateChange={this.onDateChange}
+                        focused={this.state.calendarFocused}
+                        onFocusChange={this.onFocusChange}
+                        numberOfMonths={1}
+                        isOutsideRange={() => false}
                     />
                     <textarea
                         placeholder="Add a note for your expense (optional)"
+                        value={this.state.note}
+                        onChange={this.onNoteChange}
                     >
                     </textarea>
                     <button>Add Expense</button>
