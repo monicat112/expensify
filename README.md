@@ -1,24 +1,29 @@
-## Project Commands
+## Commands
 
 **Build**
 
 `yarn run build:dev`  
 `yarn run build:prod` 
 
-**Run**
-
-`yarn run dev-server`  
-`yarn run serve`  
-
-**Express**
-
-`yarn start` at localhost:3001
-
 **Test**
 
 `yarn test`  
 `yarn test -- --watch`
 
-**Run a Playground Project**
+**Serve**
 
-`yarn run file.js`
+Dev server doesn't need prod files to be generated. Express server does.
+ 
+`yarn run dev-server` 
+`yarn start` 
+
+**Run Playground File**
+
+`yarn run src/playground/file.js`
+
+**Go Live with Heroku**
+
+Push master to Heroku and then open in-browser to veiw the full live app.
+
+`git push heroku master`  
+`heroku open` 
