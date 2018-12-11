@@ -7,7 +7,7 @@
 
 **Run**
 
-`yarn run dev-server`
+`yarn run dev-server`  
 `yarn run serve`  
 
 **Express**
@@ -16,7 +16,7 @@
 
 **Test**
 
-`yarn test`
+`yarn test`  
 `yarn test -- --watch`
 
 **Run a Playground Project**
