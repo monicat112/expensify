@@ -1,17 +1,24 @@
-## Start a Project
+## Project Commands
 
-The main project  
+**Build**
 
 `yarn run build:dev`  
-`yarn run dev-server`
+`yarn run build:prod` 
 
-`yarn run build:prod`  
+**Run**
+
+`yarn run dev-server`
 `yarn run serve`  
 
-Testing
+**Express**
+
+`yarn start` at localhost:3001
+
+**Test**
 
 `yarn test`
 `yarn test -- --watch`
 
-A playground project  
-`yarn run ???`
+**Run a Playground Project**
+
+`yarn run file.js`

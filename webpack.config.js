@@ -1,7 +1,7 @@
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
-// exporting a function https://webpack.js.org/configuration/configuration-types/#exporting-a-function
+// exporting a function instead of an object https://webpack.js.org/configuration/configuration-types/#exporting-a-function
 module.exports = (env) => {
   const isProduction = env === 'production'
   const CSSExtract = new ExtractTextPlugin('styles.css')
