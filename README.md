@@ -8,7 +8,7 @@
 **Test**
 
 `yarn test`  
-`yarn test -- --watch`
+`yarn test --watch`
 
 **Serve**
 
