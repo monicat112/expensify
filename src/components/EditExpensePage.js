@@ -3,29 +3,24 @@ import { connect } from 'react-redux'
 import ExpenseForm from './ExpenseForm'
 import { removeExpense, editExpense } from '../actions/expenses'
 
+// see notes/section-12-3-edit-expense.md
+
 export class EditExpensePage extends React.Component {
     onSubmitProperty = (expense) => {
-        // use the dispatching prop and give it the id and the expense to use
-        this.props.editExpenseMeta(this.props.expense.id, expense)
-        // then go to the home page
+        this.props.editExpenseProp(this.props.expense.id, expense)
         this.props.history.push('/')
     }
     onRemoveProperty = () => {
-        // use the dispatching prop and give it the expense to use
-        this.props.removeExpenseMeta({ id: this.props.expense.id })
-        // then go to the home page
+        this.props.removeExpenseProp({ id: this.props.expense.id })
         this.props.history.push('/')
     }
     render () {
         return (
             <div>
                 <ExpenseForm 
-                    // give the expense to our form 
                     expense={this.props.expense}
-                    // tell the form what function to run when it's submitted
                     onSubmit={this.onSubmitProperty}
                 />
-                {/* remove the element */}
                 <button onClick={this.onRemoveProperty}>Remove</button>
             </div>
         )
@@ -39,9 +34,8 @@ const mapStateToProps = (state, props) => ({
 
 // create any props that use dispatch
 const mapDispatchToProps = (dispatch, props) => ({
-    // named these "Meta" just to disinguish them from the actions with similar names
-    editExpenseMeta: (id, expense) => dispatch(editExpensePage(id, expense)),
-    removeExpenseMeta: (data) => dispatch(removeExpense(data))
+    editExpenseProp: (id, expense) => dispatch(editExpensePage(id, expense)),
+    removeExpenseProp: (data) => dispatch(removeExpense(data))
 })
 
 // connect the EditExpensePage to our state props and dispatching props

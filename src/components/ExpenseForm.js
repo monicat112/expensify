@@ -37,6 +37,7 @@ export default class ExpenseForm extends React.Component {
     onFocusChange = ({ focused }) => { //destructuring the SingleDatePicker's props
         this.setState(() => ({ calendarFocused: focused }))
     }
+    // see notes/section-12-3-edit-expense.md, 1. onSubmitProperty(expense)
     onSubmit = (e) => {
         e.preventDefault()
 

@@ -5,16 +5,17 @@ import expenses from '../fixtures/expenses'
 
 // see notes section-12-3-edit-expense.md for explanations
 
-let wrapper, editExpenseMeta, removeExpenseMeta, history
+let wrapper, editExpenseProp, removeExpenseProp, history, asdf
 
 beforeEach(() => {
-    editExpenseMeta = jest.fn()
-    removeExpenseMeta = jest.fn()
+    editExpenseProp = jest.fn()
+    removeExpenseProp = jest.fn()
     history = { push: jest.fn() }
+    asdf = 'hello'
     wrapper = shallow(
         <EditExpensePage 
-            editExpenseMeta={editExpenseMeta}
-            removeExpenseMeta={removeExpenseMeta}
+            editExpenseProp={editExpenseProp}
+            removeExpenseProp={removeExpenseProp}
             history={history}
             expense={expenses[2]}
         />
@@ -28,13 +29,13 @@ test('should render EditExpense', () => {
 test('should handle EditExpense', () => {
     wrapper.find('ExpenseForm').prop('onSubmit')(expenses[2])
     expect(history.push).toHaveBeenLastCalledWith('/')
-    expect(editExpenseMeta).toHaveBeenLastCalledWith(expenses[2].id, expenses[2])
+    expect(editExpenseProp).toHaveBeenLastCalledWith(expenses[2].id, expenses[2])
 })
 
 test('should handle RemoveExpenses', () => {
     wrapper.find('button').simulate('click')
     expect(history.push).toHaveBeenLastCalledWith('/')
-    expect(removeExpenseMeta).toHaveBeenLastCalledWith({
+    expect(removeExpenseProp).toHaveBeenLastCalledWith({
         id: expenses[2].id
     })
 })
