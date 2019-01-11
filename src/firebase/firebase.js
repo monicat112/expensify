@@ -14,15 +14,4 @@ firebase.initializeApp(config)
 
 const database = firebase.database()
 
-// database.ref().set({
-//     name: 'Monica',
-//     location: {
-//         city: 'Seattle',
-//         country: 'US'
-//     }
-// }).then(() => {
-//     console.log('data\'s synced')
-// }).catch((e) => {
-//     console.log('This failed.', e)
-// })
-
+export { firebase, database as default }

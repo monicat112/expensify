@@ -160,7 +160,6 @@ const store = createStore(
 store.subscribe(() => {
     const state = store.getState()
     const visibleExpenses = getVisibleExpenses(state.expenses, state.filters)
-    console.log(visibleExpenses) 
 }) 
 
 // Dispatching
@@ -168,7 +167,7 @@ store.subscribe(() => {
 const expenseOne = store.dispatch(addExpense({ description: 'Rent', amount: 100, createdAt: -2000 }))
 const expenseTwo = store.dispatch(addExpense({ description: 'Coffee', amount: 3000, createdAt: 1000 }))
 
-// // store.dispatch(removeExpense({ id: expenseOne.expense.id }))
+// store.dispatch(removeExpense({ id: expenseOne.expense.id }))
 // store.dispatch(editExpense(expenseTwo.expense.id, { amount: 500 }))
 
 // store.dispatch(setTextFilter('coffee'))

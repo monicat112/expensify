@@ -12,9 +12,9 @@ import './firebase/firebase'
 
 const store = configureStore()
 
-store.dispatch(addExpense({ description: 'Water bill', amount: 4500, createdAt: 1545411200874 }))
-store.dispatch(addExpense({ description: 'Gas bill', createdAt: 1545411200874 }))
-store.dispatch(addExpense({ description: 'Rent', amount: 109500, createdAt: 1545411200874 }))
+store.dispatch(addExpense({ id: '1', description: 'Water bill', amount: 4500, createdAt: 1545411200874 }))
+store.dispatch(addExpense({ id: '2', description: 'Gas bill', createdAt: 1545411200874 }))
+store.dispatch(addExpense({ id: '3', description: 'Rent', amount: 109500, createdAt: 1545411200874 }))
 
 const state = store.getState()
 const visibleExpenses = getVisibleExpenses(state.expenses, state.filters)
