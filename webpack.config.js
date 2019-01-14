@@ -10,7 +10,6 @@ if (process.env.NODE_ENV === 'test') {
   require('dotenv').config({ path: '.env.development' })
 }
 
-
 // exporting a function instead of an object https://webpack.js.org/configuration/configuration-types/#exporting-a-function
 module.exports = (env) => {
   const isProduction = env === 'production'
