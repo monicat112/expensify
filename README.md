@@ -27,3 +27,17 @@ Push master to Heroku and then open in-browser to veiw the full live app.
 
 `git push heroku master`  
 `heroku open` 
+
+## Firebase
+
+Test and dev keys for firebase are *not* commited to the repo since that would be a security issue.
+
+Those should be added into root files `.env.development` and `.env.test` like this:
+
+```
+FIREBASE_API_KEY=theKey
+FIREBASE_AUTH_DOMAIN=theDomain
+etc.
+```
+
+`webpack.config.js` pulls them into the project.

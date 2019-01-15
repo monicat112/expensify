@@ -24,7 +24,11 @@ export default (state = expensesReducerDefaultState, action) => {
                     return expense
                 }
             })
+        case 'SET_EXPENSES':
+            // set the expenses to equal to the data we have in firebase
+            return action.expenses
         default:
             return state
     }
 }
+

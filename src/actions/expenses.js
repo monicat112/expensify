@@ -38,3 +38,8 @@ export const editExpense = (id, updates) => ({
     updates
 })
 
+// Override all the expenses in the redux store with the Firebase ones
+export const setExpenses = (expenses) => ({
+    type: 'SET_EXPENSES',
+    expenses
+})

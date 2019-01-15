@@ -2,8 +2,10 @@ const path = require('path')
 const webpack = require('webpack')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
+// heroku creates this var and sets it to 'production'
 process.env.NODE_ENV = process.env.NODE_ENV || 'development'
 
+// no heroku setup here b/c heroku accepts the firebase keys through command line
 if (process.env.NODE_ENV === 'test') {
   require('dotenv').config({ path: '.env.test' })
 } else if (process.env.NODE_ENV === 'development'){

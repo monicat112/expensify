@@ -1,6 +1,11 @@
 import expensesReducer from '../../reducers/expenses'
 import expenses from '../fixtures/expenses'
 
+// Testing:
+// pass in data
+// get a result
+// assert something about what comes back
+
 test('should set default state', () => {
     const state = expensesReducer(undefined, { type: '@@INIT' })
     expect(state).toEqual([])
@@ -69,6 +74,18 @@ test('should not edit expense if expense not found', () => {
     expect(state).toEqual(expenses)
 })
 
-// pass in data
-// get a result
-// assert something about what comes back
+test('should set expenses', () => {
+    const newExpenses = [{
+        id: '4',
+        description: 'Cookies',
+        note: '',
+        amount: 495,
+        createdAt: 0
+    }]
+    const action = {
+        type: 'SET_EXPENSES',
+        expenses: newExpenses
+    }
+    const state = expensesReducer(expenses, action)
+    expect(state).toEqual(newExpenses)
+})
