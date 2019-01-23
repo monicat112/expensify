@@ -42,6 +42,16 @@ export const removeExpense = ({ id } = {}) => ({
 })
 
 // Edit Expense
+export const startEditExpense = (id, updates) => {
+    return (dispatch) => {
+        // the return lets us do things in expenses.test when startEditExpense is completed
+        // otherwise we wouldn't have a way of knowing when this is done
+        return database.ref(`expenses/${id}`).update(updates).then(() => {
+            dispatch(editExpense(id, updates))
+        })
+    }
+}
+
 export const editExpense = (id, updates) => ({
     type: 'EDIT_EXPENSE',
     id,
@@ -49,9 +59,9 @@ export const editExpense = (id, updates) => ({
 })
 
 // Set Expense
-// Override all the expenses in the redux store with the Firebase ones
 export const setExpenses = (expenses) => ({
     type: 'SET_EXPENSES',
+    // Override all the expenses in the redux store with the Firebase ones
     expenses
 })
 
