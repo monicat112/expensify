@@ -1,5 +1,14 @@
 import { firebase, googleAuthProvider } from '../firebase/firebase'
 
+export const login = (uid) => ({
+    type: 'LOGIN',
+    uid
+})
+
+export const logout = () => {
+    type: 'LOGOUT'
+}
+
 // these are both async actions
 
 export const startLogin = () => {
