@@ -5,9 +5,9 @@ export const login = (uid) => ({
     uid
 })
 
-export const logout = () => {
+export const logout = () => ({
     type: 'LOGOUT'
-}
+})
 
 // these are both async actions
 
