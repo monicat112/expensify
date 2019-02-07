@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Route, Redirect } from 'react-router-dom'
 
-// see Private Routes in notes/section-16-firebase-auth.md
+// see Private Routes in notes/_wheres-the-data.md
 
 export const PublicRoute = ({ 
     isAuthenticated,

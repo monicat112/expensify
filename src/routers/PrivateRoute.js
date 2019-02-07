@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { Route, Redirect } from 'react-router-dom'
 import Header from '../components/Header'
 
-// see Private Routes in notes/section-16-firebase-auth.md
+// see Private Routes in notes/_wheres-the-data.md
 
 export const PrivateRoute = ({ 
     isAuthenticated,
