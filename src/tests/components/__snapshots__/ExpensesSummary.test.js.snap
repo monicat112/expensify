@@ -10,6 +10,14 @@ exports[`should correctly render ExpensesSummarry with 1 expense  1`] = `
      totalling 
     $2.35
   </p>
+  <div>
+    <Link
+      replace={false}
+      to="/create"
+    >
+      Add Expense
+    </Link>
+  </div>
 </div>
 `;
 
@@ -23,5 +31,13 @@ exports[`should correctly render ExpensesSummarry with multiple expense  1`] = `
      totalling 
     $2,359.98
   </p>
+  <div>
+    <Link
+      replace={false}
+      to="/create"
+    >
+      Add Expense
+    </Link>
+  </div>
 </div>
 `;
