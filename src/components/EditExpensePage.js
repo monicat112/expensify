@@ -14,22 +14,24 @@ export class EditExpensePage extends React.Component {
         this.props.startRemoveExpenseProp({ id: this.props.expense.id })
         this.props.history.push('/')
     }
-    render () {(
-        <div>
-            <div className="page-header">
+    render () {
+        return (
+            <div>
+                <div className="page-header">
+                    <div className="content-container">
+                        <h1 className="page-header__title">Edit Expense</h1>
+                    </div>
+                </div>
                 <div className="content-container">
-                    <h1 className="page-header__title">Edit Expense</h1>
+                    <ExpenseForm
+                        expense={this.props.expense}
+                        onSubmit={this.onSubmit}
+                    />
+                    <button className="button button--secondary" onClick={this.onRemove}>Remove Expense</button>
                 </div>
             </div>
-            <div className="content-container">
-                <ExpenseForm
-                    expense={this.props.expense}
-                    onSubmit={this.onSubmit}
-                />
-                <button className="button button--secondary" onClick={this.onRemove}>Remove Expense</button>
-            </div>
-        </div>
-    )}
+        )
+    }
 }
 
 // get an expense that matches our url id from the store
