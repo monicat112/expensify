@@ -17,3 +17,16 @@
 .button--secondary {
   background: #888;
 }
+
+
+.button-group {
+
+  .button {
+    margin-right: $s-size;
+  }
+
+  .button:last-of-type {
+    margin-right: 0;
+  }
+  
+}
