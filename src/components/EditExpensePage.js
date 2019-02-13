@@ -8,20 +8,21 @@ import RemoveModal from './RemoveModal'
 
 export class EditExpensePage extends React.Component {
     state = {
-        modalShown: false
+        modalIsOpen: false
     }
     onSubmit = (expense) => {
         this.props.startEditExpenseProp(this.props.expense.id, expense)
         this.props.history.push('/')
     }
-    onRemove = () => {
+    onRemove = (e) => {
+        e.preventDefault()
         this.props.startRemoveExpenseProp({ id: this.props.expense.id })
         this.props.history.push('/')
     }
-    // onToggleModal = () => {
-    //     this.setState(() => ({ modalShown: !this.state.modalShown }))
-    // }
-
+    handleModalToggle = (e) => {
+        e.preventDefault()
+        this.setState(() => ({ modalIsOpen: !this.state.modalIsOpen }))
+    }
     render () {
         return (
             <div>
@@ -35,13 +36,14 @@ export class EditExpensePage extends React.Component {
                         expense={this.props.expense}
                         onSubmit={this.onSubmit}
                     />
-                    <button className="button button--secondary" onClick={this.onRemove}>Remove Expense</button>
+                    <button className="button button--secondary" onClick={this.handleModalToggle}>Remove Expense</button>
                 </div>
 
-                <button className="button button--secondary" onClick={this.onToggleModal}>Toggle Modal</button>
-
-                <RemoveModal
-                    modalIsOpen={this.state.modalShown }
+                <RemoveModal 
+                    modalIsOpen={this.state.modalIsOpen}
+                    handleModalToggle={this.handleModalToggle}
+                    onRemove={this.onRemove}
+                    expenseName={this.props.expense.description}
                 />
             </div>
         )
