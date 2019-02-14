@@ -3,7 +3,7 @@ import Modal from 'react-modal'
 
 Modal.setAppElement('#app') // aria help
 
-const RemoveModal = (props) => (
+const ActionModal = (props) => (
     <Modal 
         isOpen={props.modalIsOpen}
         onRequestClose={props.handleModalToggle}
@@ -16,12 +16,12 @@ const RemoveModal = (props) => (
             }
         }}
     >
-        <h3 className="modal__title">Are you sure you want to remove <i>{props.expenseName}</i>?</h3>
+        <h3 className="modal__title">{props.modalTitle}</h3>
         <div className="button-group">
             <button className="button button--secondary" onClick={props.handleModalToggle}>Cancel</button>
-            <button className="button" onClick={props.onRemove}>Remove</button>
+            <button className="button" onClick={props.handleAction}>{props.actionButtonTitle}</button>
         </div>
     </Modal>
 )
 
-export default RemoveModal
+export default ActionModal

@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import ExpenseForm from './ExpenseForm'
 import { startRemoveExpense, startEditExpense } from '../actions/expenses'
-import RemoveModal from './RemoveModal'
+import ActionModal from './ActionModal'
 
 // see notes/section-12-3-edit-expense.md
 
@@ -39,11 +39,12 @@ export class EditExpensePage extends React.Component {
                     <button className="button button--secondary" onClick={this.handleModalToggle}>Remove Expense</button>
                 </div>
 
-                <RemoveModal 
+                <ActionModal 
                     modalIsOpen={this.state.modalIsOpen}
                     handleModalToggle={this.handleModalToggle}
-                    onRemove={this.onRemove}
-                    expenseName={this.props.expense.description}
+                    handleAction={this.onRemove}
+                    modalTitle={`Remove the expense ${this.props.expense.description}?`}
+                    actionButtonTitle='Remove'
                 />
             </div>
         )
