@@ -18,7 +18,6 @@
   background: #888;
 }
 
-
 .button-group {
 
   .button {
@@ -28,5 +27,19 @@
   .button:last-of-type {
     margin-right: 0;
   }
-  
+
+}
+
+.button-group-blocks {
+
+  .button {
+    display: block;
+    width: 100%;
+    margin-bottom: $s-size;
+  }
+
+  .button:last-of-type {
+    margin-bottom: 0;
+  }
+
 }
