@@ -14,7 +14,7 @@
 
 Dev server doesn't need prod files to be generated. Express server does.
  
-`yarn run dev-server` 
+`yarn run dev-server`  
 `yarn start` 
 
 **Run Playground File**
