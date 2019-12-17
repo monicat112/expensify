@@ -57,6 +57,6 @@
     "dotenv": "4.0.0",
     "jest": "20.0.4",
     "react-test-renderer": "16.0.0",
-    "webpack-dev-server": "2.5.1"
+    "webpack-dev-server": "3.1.11"
   }
 }
