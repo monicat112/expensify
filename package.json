@@ -30,7 +30,7 @@
     "enzyme-to-json": "3.0.1",
     "express": "4.15.4",
     "extract-text-webpack-plugin": "3.0.0",
-    "firebase": "4.2.0",
+    "firebase": "4.13.1",
     "history": "4.7.2",
     "moment": "2.18.1",
     "node-sass": "4.5.3",
